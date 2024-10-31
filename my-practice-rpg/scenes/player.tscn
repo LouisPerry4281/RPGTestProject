@@ -433,4 +433,17 @@ zoom = Vector2(4, 4)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="HitBoxes" type="Node" parent="."]
+
+[node name="hitbox_down" type="Area2D" parent="HitBoxes"]
+process_mode = 1
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBoxes/hitbox_down"]
+polygon = PackedVector2Array(6, 1, 8, 7, 0, 9, -7, 7, -4, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="HitBoxes/hitbox_down"]
+polygon = PackedVector2Array(4, 2, 9, 5, -1, 7, -5, 6, -3, 2)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
